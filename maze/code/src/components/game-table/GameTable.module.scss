@@ -1,0 +1,85 @@
+.game_table {
+  width: 100vw;
+  height: 100vh;
+  @mixin flex-center() {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+  }
+  @include flex-center();
+  .table {
+    display: grid;
+    grid-template-columns: repeat(6, auto);
+    grid-template-rows: repeat(6, auto);
+    // grid-template-columns: auto auto auto;
+    // grid-template-rows: auto auto auto;
+    //gap: 4px;
+    width: 500px;
+    height: 500px;
+    //border: 3px solid red;
+    > div {
+      width: 100%;
+      height: 100%;
+      border: 3px solid black;
+      @include flex-center();
+      position: relative;
+      img {
+        width: 70px;
+        height: 100%;
+        position: absolute;
+      }
+
+      > svg {
+        position: absolute;
+        font-size: 70px;
+        stroke-width: 3px;
+      }
+    }
+    .box_dance_color {
+      animation: box_dance_color 0.15s;
+    }
+    .isPath {
+      animation: isPathAnimation 1s infinite alternate-reverse;
+    }
+    // > div:first-child {
+    //   border: 3px solid red;
+    // }
+    > div:hover {
+      background-color: rgb(218, 255, 243);
+      cursor: pointer;
+    }
+  }
+  .restart {
+    @include flex-center();
+    button {
+      background-color: rebeccapurple;
+      color: white;
+      padding: 15px 25px;
+      border: none;
+      border-radius: 7px;
+      font-size: 15px;
+      margin-top: 20px;
+    }
+    button:hover {
+      background-color: rgb(73, 21, 124);
+      cursor: pointer;
+    }
+  }
+}
+@keyframes box_dance_color {
+  from {
+    background-color: white;
+  }
+  to {
+    background-color: rgb(182, 182, 245);
+  }
+}
+@keyframes isPathAnimation {
+  from {
+    background-color: rgb(193, 255, 234);
+  }
+  to {
+    background-color: rgb(14, 184, 127);
+  }
+}
